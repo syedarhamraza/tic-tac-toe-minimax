@@ -1,0 +1,6 @@
+{
+  "name": "Unbeatable Tic-Tac-Toe",
+  "description": "A responsive Tic-Tac-Toe game featuring an unbeatable AI powered by the Minimax algorithm.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
