@@ -276,12 +276,21 @@ export default function App() {
         {/* Left Stats Section (Human Focus) */}
         <div className="hidden xl:flex flex-col gap-4 w-64 order-first">
            <div className="glass-panel p-6 rounded-3xl border border-white/5 bg-white/[0.02]">
-              <div className="flex items-center gap-3 mb-6">
-                 <div className="w-8 h-8 rounded-full bg-sky-400/20 flex items-center justify-center border border-sky-400/30">
-                    <User className="w-4 h-4 text-sky-400" />
-                 </div>
-                 <h3 className="font-mono text-xs uppercase tracking-widest text-white/60">Human_Pilot</h3>
-              </div>
+               <div className="flex items-center gap-3 mb-6">
+                   {/* Profile Picture Container */}
+                   <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-sky-400/30 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+                       <img
+                           src="/profile.png" // Put your photo in the public folder and name it profile.jpg
+                           alt="Arham"
+                           className="w-full h-full object-cover"
+                           onError={(e) => {
+                               // Fallback to icon if image fails to load
+                               e.currentTarget.src = "https://ui-avatars.com/api/?name=Arham&background=0ea5e9&color=fff";
+                           }}
+                       />
+                   </div>
+                   <h3 className="font-mono text-xs uppercase tracking-widest text-white/60">Human_Arham</h3>
+               </div>
               <div className="space-y-6">
                  <div>
                     <label className="font-mono text-[9px] uppercase text-white/20 tracking-tighter block mb-1">Victory_Ratio</label>
@@ -338,7 +347,7 @@ export default function App() {
             <header className="flex items-center justify-between">
               <div className="flex flex-col">
                 <h1 className="font-mono text-[10px] tracking-[0.4em] uppercase text-white/30 flex items-center gap-2 mb-1">
-                  <Binary className="w-3 h-3" /> Grid_Core.v2
+                  <Binary className="w-3 h-3" /> Grid_Core
                 </h1>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
@@ -773,6 +782,26 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+        <footer className="absolute bottom-6 left-0 right-0 flex justify-center items-center z-20 pointer-events-auto">
+            <motion.a
+                href="https://syedarhamraza-portfolio.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.4 }}
+                whileHover={{ opacity: 1, scale: 1.05 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md transition-all group"
+            >
+          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-white/60 group-hover:text-sky-400 transition-colors">
+            Developed_by
+          </span>
+                <span className="font-mono text-[10px] font-black uppercase tracking-widest text-white group-hover:text-sky-400 transition-colors">
+            Arham
+          </span>
+                <div className="w-1 h-1 rounded-full bg-rose-500 animate-pulse group-hover:bg-sky-400" />
+            </motion.a>
+        </footer>
     </div>
   );
 }
